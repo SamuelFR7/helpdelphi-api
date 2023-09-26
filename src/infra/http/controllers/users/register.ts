@@ -1,4 +1,4 @@
-import { registerUseCase } from '@/application/use-cases/user/register-use-case'
+import { registerUseCase } from '@/application/users/use-cases/register-use-case'
 import { userSchema } from '@/core/validations/user'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
