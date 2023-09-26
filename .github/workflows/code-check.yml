@@ -6,8 +6,8 @@ on:
 
 env:
   DATABASE_HOST: 'fake'
-  DATABASE_PASSWORD: 'fake',
-  DATABASE_DB: 'fake',
+  DATABASE_PASSWORD: 'fake'
+  DATABASE_DB: 'fake'
   DATABASE_USER: 'fake'
 
 jobs:
