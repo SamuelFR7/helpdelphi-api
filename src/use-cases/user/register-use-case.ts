@@ -1,7 +1,7 @@
 import { db } from '@/db'
 import { users } from '@/db/schema'
-import { userSchema } from '@/validations/user'
-import { z } from 'zod'
+import { type userSchema } from '@/validations/user'
+import { type z } from 'zod'
 import bcryptjs from 'bcryptjs'
 import { eq } from 'drizzle-orm'
 

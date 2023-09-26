@@ -1,5 +1,5 @@
 import { deleteUserUseCase } from '@/use-cases/user/delete-user-use-case'
-import { FastifyReply, FastifyRequest } from 'fastify'
+import { type FastifyReply, type FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
 const paramsSchema = z.object({

@@ -1,5 +1,5 @@
 import { listUsersUseCase } from '@/use-cases/user/list-users-use-case'
-import { FastifyReply, FastifyRequest } from 'fastify'
+import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
 const querySchema = z.object({

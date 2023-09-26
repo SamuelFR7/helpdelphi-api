@@ -8,6 +8,8 @@
     "dev": "tsx --watch src/server.ts",
     "build": "tsup src/",
     "db:generate": "drizzle-kit generate:mysql",
+    "lint": "eslint \"./src/**/*.ts\"",
+    "lint:fix": "eslint --fix \"./src/**/*.ts\"",
     "format:write": "prettier --write \"**/*.ts\" --cache",
     "format:check": "prettier --check \"**/*.ts\" --cache",
     "typecheck": "tsc --noEmit",

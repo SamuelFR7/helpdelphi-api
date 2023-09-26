@@ -1,9 +1,9 @@
 import { db } from '@/db'
-import { User, users } from '@/db/schema'
-import { PaginatedResult } from '@/types/paginated-result'
-import { searchSchema } from '@/validations/search'
+import { type User, users } from '@/db/schema'
+import type { PaginatedResult } from '@/types/paginated-result'
+import type { searchSchema } from '@/validations/search'
 import { like, sql } from 'drizzle-orm'
-import { z } from 'zod'
+import type { z } from 'zod'
 
 export async function listUsersUseCase(
   input: z.infer<typeof searchSchema>
