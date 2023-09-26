@@ -1,8 +1,8 @@
-import { db } from '@/db/'
+import { db } from '@/db'
 import { users } from '@/db/schema'
 import { userSchema } from '@/validations/user'
 import { z } from 'zod'
-import { hash } from 'bcryptjs'
+import bcryptjs from 'bcryptjs'
 import { eq } from 'drizzle-orm'
 
 export async function registerUseCase(
@@ -17,7 +17,7 @@ export async function registerUseCase(
     throw new Error('User already exists')
   }
 
-  const hashPassword = await hash(input.password, 8)
+  const hashPassword = await bcryptjs.hash(input.password, 8)
 
   await db.insert(users).values({
     password: hashPassword,

@@ -2,7 +2,7 @@ import { db } from '@/db'
 import { User, users } from '@/db/schema'
 import { PaginatedResult } from '@/types/paginated-result'
 import { searchSchema } from '@/validations/search'
-import { eq, sql } from 'drizzle-orm'
+import { like, sql } from 'drizzle-orm'
 import { z } from 'zod'
 
 export async function listUsersUseCase(
@@ -15,7 +15,7 @@ export async function listUsersUseCase(
     .limit(input.limit)
     .where(
       typeof input.search === 'string'
-        ? eq(users.name, input.search)
+        ? like(users.name, `%${input.search}%`)
         : undefined
     )
 
@@ -24,7 +24,7 @@ export async function listUsersUseCase(
     .from(users)
     .where(
       typeof input.search === 'string'
-        ? eq(users.name, input.search)
+        ? like(users.name, `%${input.search}%`)
         : undefined
     )
 

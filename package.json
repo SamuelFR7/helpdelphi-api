@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx --watch src/index.ts",
+    "dev": "tsx --watch src/server.ts",
+    "build": "tsup src/",
     "db:generate": "drizzle-kit generate:mysql",
     "format:write": "prettier --write \"**/*.ts\" --cache",
     "format:check": "prettier --check \"**/*.ts\" --cache",
@@ -35,5 +36,9 @@
     "fastify": "^4.23.2",
     "mysql2": "^3.6.1",
     "zod": "^3.22.2"
+  },
+  "tsup": {
+    "target": "esnext",
+    "format": ["esm"]
   }
 }
