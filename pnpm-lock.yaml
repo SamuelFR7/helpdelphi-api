@@ -28,6 +28,9 @@ devDependencies:
   '@types/bcryptjs':
     specifier: ^2.4.4
     version: 2.4.4
+  '@types/eslint':
+    specifier: ^8.44.3
+    version: 8.44.3
   '@types/node':
     specifier: ^20.7.0
     version: 20.7.0
@@ -427,6 +430,17 @@ packages:
 
   /@types/bcryptjs@2.4.4:
     resolution: {integrity: sha512-9wlJI7k5gRyJEC4yrV7DubzNQFTPiykYxUA6lBtsk5NlOfW9oWLJ1HdIA4YtE+6C3i3mTpDQQEosJ2rVZfBWnw==}
+    dev: true
+
+  /@types/eslint@8.44.3:
+    resolution: {integrity: sha512-iM/WfkwAhwmPff3wZuPLYiHX18HI24jU8k1ZSH7P8FHwxTjZ2P6CoX2wnF43oprR+YXJM6UUxATkNvyv/JHd+g==}
+    dependencies:
+      '@types/estree': 1.0.2
+      '@types/json-schema': 7.0.13
+    dev: true
+
+  /@types/estree@1.0.2:
+    resolution: {integrity: sha512-VeiPZ9MMwXjO32/Xu7+OwflfmeoRwkE/qzndw42gGtgJwZopBnzy2gD//NN1+go1mADzkDcqf/KnFRSjTJ8xJA==}
     dev: true
 
   /@types/json-schema@7.0.13:

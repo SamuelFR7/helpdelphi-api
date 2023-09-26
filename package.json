@@ -10,6 +10,7 @@
     "db:generate": "drizzle-kit generate:mysql",
     "format:write": "prettier --write \"**/*.ts\" --cache",
     "format:check": "prettier --check \"**/*.ts\" --cache",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,6 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.4",
+    "@types/eslint": "^8.44.3",
     "@types/node": "^20.7.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
@@ -39,6 +41,8 @@
   },
   "tsup": {
     "target": "esnext",
-    "format": ["esm"]
+    "format": [
+      "esm"
+    ]
   }
 }
