@@ -1,5 +1,5 @@
-import { db } from '@/db'
-import { users } from '@/db/schema'
+import { db } from '@/infra/db'
+import { users } from '@/infra/db/schema'
 import { eq } from 'drizzle-orm'
 
 export async function deleteUserUseCase({

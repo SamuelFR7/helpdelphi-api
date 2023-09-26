@@ -1,4 +1,4 @@
-import { deleteUserUseCase } from '@/use-cases/user/delete-user-use-case'
+import { deleteUserUseCase } from '@/application/use-cases/user/delete-user-use-case'
 import { type FastifyReply, type FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
