@@ -1,4 +1,4 @@
-import { listUsersUseCase } from '@/application/use-cases/user/list-users-use-case'
+import { listUsersUseCase } from '@/application/users/use-cases/list-users-use-case'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
