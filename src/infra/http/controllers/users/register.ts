@@ -1,5 +1,5 @@
-import { registerUseCase } from '@/use-cases/user/register-use-case'
-import { userSchema } from '@/validations/user'
+import { registerUseCase } from '@/application/use-cases/user/register-use-case'
+import { userSchema } from '@/core/validations/user'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function register(req: FastifyRequest, res: FastifyReply) {

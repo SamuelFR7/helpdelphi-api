@@ -1,7 +1,7 @@
-import { db } from '@/db'
-import { type User, users } from '@/db/schema'
-import type { PaginatedResult } from '@/types/paginated-result'
-import type { searchSchema } from '@/validations/search'
+import { db } from '@/infra/db'
+import { type User, users } from '@/infra/db/schema'
+import type { PaginatedResult } from '@/core/dto/paginated-result'
+import type { searchSchema } from '@/core/validations/search'
 import { like, sql } from 'drizzle-orm'
 import type { z } from 'zod'
 
