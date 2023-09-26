@@ -1,7 +1,7 @@
-import type { Config } from "drizzle-kit";
+import type { Config } from 'drizzle-kit'
 
 export default {
-  schema: "./src/db/schema.ts",
+  schema: './src/db/schema.ts',
   driver: 'pg',
   dbCredentials: {
     host: process.env.DATABASE_HOST ?? '',
@@ -9,5 +9,5 @@ export default {
     password: process.env.DATABASE_PASSWORD ?? '',
     database: process.env.DATABASE_DB ?? '',
   },
-  out: './drizzle'
-} satisfies Config;
+  out: './drizzle',
+} satisfies Config

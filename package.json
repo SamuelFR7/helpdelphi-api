@@ -7,21 +7,30 @@
   "scripts": {
     "dev": "tsx --watch src/index.ts",
     "db:generate": "drizzle-kit generate:mysql",
+    "format:write": "prettier --write \"**/*.ts\" --cache",
+    "format:check": "prettier --check \"**/*.ts\" --cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.4",
     "@types/node": "^20.7.0",
+    "@typescript-eslint/eslint-plugin": "^6.7.3",
+    "@typescript-eslint/parser": "^6.7.3",
     "dotenv": "^16.3.1",
     "drizzle-kit": "^0.19.13",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
     "tsup": "^7.2.0",
     "tsx": "^3.13.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.6.1",
+    "bcryptjs": "^2.4.3",
     "drizzle-orm": "^0.28.6",
     "fastify": "^4.23.2",
     "mysql2": "^3.6.1",
