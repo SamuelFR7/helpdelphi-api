@@ -9,6 +9,7 @@ env:
   DATABASE_PASSWORD: 'fake'
   DATABASE_DB: 'fake'
   DATABASE_USER: 'fake'
+  JWT_SECRET: 'fake'
 
 jobs:
   typecheck-lint:
