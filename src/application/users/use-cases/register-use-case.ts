@@ -15,7 +15,7 @@ export async function registerUseCase(
     .from(users)
     .where(eq(users.username, input.username))
 
-  if (!userAlreadyExists[0]) {
+  if (userAlreadyExists[0]) {
     throw new UseCaseError('User already exists')
   }
 
