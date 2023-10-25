@@ -22,5 +22,6 @@ export const env = createEnv({
     DATABASE_DB: process.env.DATABASE_DB,
     DATABASE_USER: process.env.DATABASE_USER,
     JWT_SECRET: process.env.JWT_SECRET,
+    PORT: process.env.PORT,
   },
 })
