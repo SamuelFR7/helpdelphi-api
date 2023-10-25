@@ -6,7 +6,7 @@ export const userSchema = z.object({
   email: z.string().email().toLowerCase(),
   document: z.string(),
   phone: z.string().length(11, { message: 'Invalid phone number ' }),
-  role: z.enum(['TECNICO', 'CLIENTE']),
+  role: z.enum(['technician', 'client', 'admin']),
   username: z.string().toLowerCase(),
   password: z.string(),
 })
