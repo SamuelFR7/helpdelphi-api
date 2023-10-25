@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "tsx --watch src/server.ts",
-    "build": "tsup src --out-dir dist",
+    "build": "tsup src",
     "postinstall": "drizzle-kit generate:mysql",
     "db:generate": "drizzle-kit generate:mysql",
     "db:studio": "drizzle-kit studio",
