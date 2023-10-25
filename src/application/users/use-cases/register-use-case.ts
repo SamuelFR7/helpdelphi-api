@@ -4,7 +4,6 @@ import { type userSchema } from '@/core/validations/user'
 import { type z } from 'zod'
 import bcryptjs from 'bcryptjs'
 import { eq } from 'drizzle-orm'
-import { createId } from '@paralleldrive/cuid2'
 import { UseCaseError } from '@/application/errors/use-case-error'
 
 export async function registerUseCase(
@@ -22,7 +21,6 @@ export async function registerUseCase(
   const hashPassword = await bcryptjs.hash(input.password, 8)
 
   await db.insert(users).values({
-    id: createId(),
     password: hashPassword,
     username: input.username,
     name: input.name,

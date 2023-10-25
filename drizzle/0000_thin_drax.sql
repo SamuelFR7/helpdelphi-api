@@ -1,11 +1,17 @@
 DO $$ BEGIN
- CREATE TYPE "role" AS ENUM('TECNICO', 'CLIENTE');
+ CREATE TYPE "criticality" AS ENUM('LOW', 'MEDIUM', 'HIGH');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "status" AS ENUM('OPEN', 'CLOSED');
+ CREATE TYPE "role" AS ENUM('CLIENT', 'ADMIN', 'TECHNICIAN');
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ CREATE TYPE "status" AS ENUM('WAITING', 'IN_PROGRESS', 'STOPPED', 'FINISHED');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
@@ -14,8 +20,8 @@ CREATE TABLE IF NOT EXISTS "tickets" (
 	"id" varchar(191) PRIMARY KEY NOT NULL,
 	"client_id" varchar(191) NOT NULL,
 	"subject" varchar(191) NOT NULL,
-	"criticality" varchar(191) NOT NULL,
-	"status" "status",
+	"criticality" "criticality" NOT NULL,
+	"status" "status" NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp
 );

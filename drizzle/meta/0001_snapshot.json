@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "682d01e4-3a3b-4e5e-9846-caa15ef69a4d",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "e0437ad7-9d47-4de4-9a60-58d424daad9e",
+  "prevId": "682d01e4-3a3b-4e5e-9846-caa15ef69a4d",
   "tables": {
     "tickets": {
       "name": "tickets",
@@ -156,9 +156,9 @@
     "role": {
       "name": "role",
       "values": {
-        "CLIENT": "CLIENT",
-        "ADMIN": "ADMIN",
-        "TECHNICIAN": "TECHNICIAN"
+        "client": "client",
+        "admin": "admin",
+        "technician": "technician"
       }
     },
     "status": {
