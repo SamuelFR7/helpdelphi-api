@@ -1,8 +1,8 @@
-import { drizzle } from 'drizzle-orm/mysql2'
-import mysql from 'mysql2/promise'
+import { drizzle } from 'drizzle-orm/postgres-js'
+import postgres from 'postgres'
 import { env } from '@/env.mjs'
 
-const connection = mysql.createPool({
+const connection = postgres({
   host: env.DATABASE_HOST,
   user: env.DATABASE_USER,
   password: env.DATABASE_PASSWORD,
