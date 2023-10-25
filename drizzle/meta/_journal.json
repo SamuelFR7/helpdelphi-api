@@ -1,26 +1,12 @@
 {
   "version": "5",
-  "dialect": "mysql",
+  "dialect": "pg",
   "entries": [
     {
       "idx": 0,
       "version": "5",
-      "when": 1698235005384,
-      "tag": "0000_old_maria_hill",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1698235589308,
-      "tag": "0001_sloppy_union_jack",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1698237266041,
-      "tag": "0002_dear_mariko_yashida",
+      "when": 1698242600411,
+      "tag": "0000_legal_wallop",
       "breakpoints": true
     }
   ]

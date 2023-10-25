@@ -7,8 +7,8 @@
     "start": "node dist/server.js",
     "dev": "tsx --watch src/server.ts",
     "build": "tsup src",
-    "postinstall": "drizzle-kit generate:mysql",
-    "db:generate": "drizzle-kit generate:mysql",
+    "postinstall": "drizzle-kit generate:pg",
+    "db:generate": "drizzle-kit generate:pg",
     "db:studio": "drizzle-kit studio",
     "lint": "eslint \"./src/**/*.ts\"",
     "lint:fix": "eslint --fix \"./src/**/*.ts\"",
@@ -43,7 +43,7 @@
     "bcryptjs": "^2.4.3",
     "drizzle-orm": "^0.28.6",
     "fastify": "^4.23.2",
-    "mysql2": "^3.6.1",
+    "postgres": "^3.4.1",
     "zod": "^3.22.2"
   }
 }

@@ -1,12 +1,9 @@
 import { createId } from '@paralleldrive/cuid2'
-import {
-  mysqlTable,
-  varchar,
-  mysqlEnum,
-  timestamp,
-} from 'drizzle-orm/mysql-core'
+import { pgTable, varchar, pgEnum, timestamp } from 'drizzle-orm/pg-core'
 
-export const users = mysqlTable('users', {
+export const roleEnum = pgEnum('role', ['TECNICO', 'CLIENTE'])
+
+export const users = pgTable('users', {
   id: varchar('id', {
     length: 191,
   })
@@ -18,14 +15,16 @@ export const users = mysqlTable('users', {
   email: varchar('email', { length: 191 }).notNull(),
   document: varchar('document', { length: 191 }).notNull(),
   phone: varchar('phone', { length: 11 }).notNull(),
-  role: mysqlEnum('role', ['TECNICO', 'CLIENTE']).notNull(),
+  role: roleEnum('role'),
   username: varchar('username', { length: 191 }).unique().notNull(),
   password: varchar('password', { length: 191 }).notNull(),
 })
 
 export type User = typeof users.$inferInsert
 
-export const tickets = mysqlTable('tickets', {
+export const statusEnum = pgEnum('status', ['OPEN', 'CLOSED'])
+
+export const tickets = pgTable('tickets', {
   id: varchar('id', {
     length: 191,
   })
@@ -39,9 +38,9 @@ export const tickets = mysqlTable('tickets', {
     .notNull(),
   subject: varchar('subject', { length: 191 }).notNull(),
   criticality: varchar('criticality', { length: 191 }).notNull(),
-  status: mysqlEnum('status', ['OPEN', 'CLOSED']).notNull(),
+  status: statusEnum('status'),
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
-  uddatedAt: timestamp('updated_at', { mode: 'date' }).onUpdateNow(),
+  updatedAt: timestamp('updated_at', { mode: 'date' }),
 })
 
 export type Ticket = typeof tickets.$inferInsert
