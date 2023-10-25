@@ -4,6 +4,7 @@ import type { PaginatedResult } from '@/core/dto/paginated-result'
 import type { searchSchema } from '@/core/validations/search'
 import { like, sql } from 'drizzle-orm'
 import type { z } from 'zod'
+import { UseCaseError } from '@/application/errors/use-case-error'
 
 export async function listUsersUseCase(
   input: z.infer<typeof searchSchema>
@@ -29,7 +30,7 @@ export async function listUsersUseCase(
     )
 
   if (!totalCountQuery[0]) {
-    throw new Error('Something went wrong')
+    throw new UseCaseError('Something went wrong')
   }
 
   const totalCount = totalCountQuery[0].count

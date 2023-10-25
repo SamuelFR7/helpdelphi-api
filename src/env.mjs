@@ -12,6 +12,7 @@ export const env = createEnv({
     DATABASE_PASSWORD: z.string(),
     DATABASE_DB: z.string(),
     DATABASE_USER: z.string(),
+    JWT_SECRET: z.string(),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
@@ -19,5 +20,6 @@ export const env = createEnv({
     DATABASE_PASSWORD: process.env.DATABASE_PASSWORD,
     DATABASE_DB: process.env.DATABASE_DB,
     DATABASE_USER: process.env.DATABASE_USER,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
 })
