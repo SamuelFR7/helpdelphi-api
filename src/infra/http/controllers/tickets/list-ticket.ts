@@ -1,8 +1,8 @@
-import { listUsersUseCase } from '@/application/users/use-cases/list-users-use-case'
+import { listTicketUseCase } from '@/application/tickets/use-cases/list-ticket-use-case'
 import { querySchema } from '@/core/validations/search'
 import type { FastifyReply, FastifyRequest } from 'fastify'
 
-export async function listUsersController(
+export async function listTicketController(
   req: FastifyRequest,
   res: FastifyReply
 ) {
@@ -17,7 +17,7 @@ export async function listUsersController(
         : 0
       : 0
 
-  const { items, totalCount } = await listUsersUseCase({
+  const { items, totalCount } = await listTicketUseCase({
     offset,
     search,
     limit,

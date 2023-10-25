@@ -6,7 +6,7 @@ import { authenticateUserController } from '../controllers/users/authenticate-us
 import { verifyJwtMiddleware } from '../middlewares/verify-jwt'
 
 export async function usersRoutes(app: FastifyInstance) {
-  app.post('/users', { onRequest: [verifyJwtMiddleware] }, register)
+  app.post('/users', register)
   app.get<{
     Querystring: {
       page: string
