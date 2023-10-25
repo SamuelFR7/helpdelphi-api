@@ -1,9 +1,16 @@
 import fastify from 'fastify'
-import { usersRoutes } from './controllers/users/routes'
+import { usersRoutes } from './routes/user-routes'
 import { ZodError } from 'zod'
 import { env } from '@/env.mjs'
+import fastifyJwt from '@fastify/jwt'
+import fastifyCors from '@fastify/cors'
 
 export const app = fastify()
+
+app.register(fastifyJwt, {
+  secret: env.JWT_SECRET,
+})
+app.register(fastifyCors, {})
 
 app.register(usersRoutes)
 

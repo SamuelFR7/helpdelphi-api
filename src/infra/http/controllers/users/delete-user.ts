@@ -13,7 +13,7 @@ export async function deleteUserController(
   const { id } = paramsSchema.parse(req.params)
 
   await deleteUserUseCase({
-    userId: parseInt(id),
+    userId: id,
   })
 
   return res.status(200).send({

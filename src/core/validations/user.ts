@@ -10,3 +10,8 @@ export const userSchema = z.object({
   username: z.string().toLowerCase(),
   password: z.string(),
 })
+
+export const authSchema = z.object({
+  username: z.string(),
+  password: z.string(),
+})

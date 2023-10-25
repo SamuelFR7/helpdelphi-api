@@ -1,8 +1,8 @@
 import type { Config } from 'drizzle-kit'
 
 export default {
-  schema: './src/db/schema.ts',
-  driver: 'pg',
+  schema: './src/infra/db/schema.ts',
+  driver: 'mysql2',
   dbCredentials: {
     host: process.env.DATABASE_HOST ?? '',
     user: process.env.DATABASE_USER ?? '',
