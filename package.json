@@ -24,18 +24,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.4",
-    "@types/eslint": "^8.44.3",
-    "@types/node": "^20.7.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.3",
-    "@typescript-eslint/parser": "^6.7.3",
+    "@types/bcryptjs": "^2.4.5",
+    "@types/eslint": "^8.44.6",
+    "@types/node": "^20.8.9",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
     "dotenv": "^16.3.1",
     "drizzle-kit": "^0.19.13",
-    "eslint": "^8.50.0",
+    "eslint": "^8.52.0",
     "eslint-config-prettier": "^9.0.0",
     "prettier": "^3.0.3",
     "tsup": "^7.2.0",
-    "tsx": "^3.13.0",
+    "tsx": "^3.14.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
@@ -45,8 +45,8 @@
     "@t3-oss/env-core": "^0.7.1",
     "bcryptjs": "^2.4.3",
     "drizzle-orm": "^0.28.6",
-    "fastify": "^4.23.2",
+    "fastify": "^4.24.3",
     "postgres": "^3.4.1",
-    "zod": "^3.22.2"
+    "zod": "^3.22.4"
   }
 }
