@@ -3,15 +3,17 @@ import { createTicketController } from '../controllers/tickets/create-ticket'
 import { listTicketController } from '../controllers/tickets/list-ticket'
 import { updateTicketController } from '../controllers/tickets/update-ticket'
 import { verifyJwtMiddleware } from '../middlewares/verify-jwt'
-import { verifyUserClient } from '../middlewares/verify-user-client'
 import { deleteTicketController } from '../controllers/tickets/delete-ticket'
+import { verifyRoleMiddleware } from '../middlewares/verify-role'
 
 export async function ticketsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwtMiddleware)
 
   app.post(
     '/tickets',
-    { onRequest: [verifyJwtMiddleware, verifyUserClient] },
+    {
+      onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['client'])],
+    },
     createTicketController
   )
   app.get<{
@@ -27,7 +29,7 @@ export async function ticketsRoutes(app: FastifyInstance) {
   )
   app.delete(
     '/tickets/:id',
-    { onRequest: [verifyJwtMiddleware, verifyUserClient] },
+    { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['client'])] },
     deleteTicketController
   )
 }

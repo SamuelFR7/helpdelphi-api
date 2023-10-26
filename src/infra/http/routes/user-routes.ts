@@ -4,12 +4,12 @@ import { listUsersController } from '../controllers/users/list-users'
 import { deleteUserController } from '../controllers/users/delete-user'
 import { authenticateUserController } from '../controllers/users/authenticate-user'
 import { verifyJwtMiddleware } from '../middlewares/verify-jwt'
-import { verifyUserAdmin } from '../middlewares/verify-user-admin'
+import { verifyRoleMiddleware } from '../middlewares/verify-role'
 
 export async function usersRoutes(app: FastifyInstance) {
   app.post(
     '/users',
-    { onRequest: [verifyJwtMiddleware, verifyUserAdmin] },
+    { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['admin'])] },
     register
   )
   app.get<{
@@ -17,10 +17,14 @@ export async function usersRoutes(app: FastifyInstance) {
       page: string
       search: string
     }
-  }>('/users', { onRequest: [verifyJwtMiddleware] }, listUsersController)
+  }>(
+    '/users',
+    { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['admin'])] },
+    listUsersController
+  )
   app.delete(
     '/users/:id',
-    { onRequest: [verifyJwtMiddleware] },
+    { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['admin'])] },
     deleteUserController
   )
   app.post('/users/session', authenticateUserController)
