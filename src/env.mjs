@@ -13,7 +13,10 @@ export const env = createEnv({
     DATABASE_DB: z.string(),
     DATABASE_USER: z.string(),
     JWT_SECRET: z.string(),
-    PORT: z.number().default(3333),
+    PORT: z
+      .string()
+      .transform((arg) => Number(arg))
+      .default('3333'),
   },
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
