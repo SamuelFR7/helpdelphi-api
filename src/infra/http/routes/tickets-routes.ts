@@ -5,6 +5,7 @@ import { updateTicketController } from '../controllers/tickets/update-ticket'
 import { verifyJwtMiddleware } from '../middlewares/verify-jwt'
 import { deleteTicketController } from '../controllers/tickets/delete-ticket'
 import { verifyRoleMiddleware } from '../middlewares/verify-role'
+import { getUniqueTicketController } from '../controllers/tickets/get-unique-ticket'
 
 export async function ticketsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwtMiddleware)
@@ -31,5 +32,12 @@ export async function ticketsRoutes(app: FastifyInstance) {
     '/tickets/:id',
     { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['client'])] },
     deleteTicketController
+  )
+  app.get(
+    '/tickets/:id',
+    {
+      onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['technician'])],
+    },
+    getUniqueTicketController
   )
 }

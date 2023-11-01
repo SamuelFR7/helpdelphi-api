@@ -50,3 +50,19 @@ export const tickets = pgTable('tickets', {
 })
 
 export type Ticket = typeof tickets.$inferInsert
+
+export const actions = pgTable('action', {
+  id: varchar('id', {
+    length: 191,
+  }),
+  description: varchar('description', {
+    length: 191,
+  }),
+  createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
+  updatedAt: timestamp('updated_at', { mode: 'date' }),
+  ticketId: varchar('ticket_id', { length: 191 })
+    .references(() => tickets.id)
+    .notNull(),
+})
+
+export type Action = typeof actions.$inferSelect
