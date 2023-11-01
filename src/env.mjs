@@ -7,7 +7,7 @@ dotenv.config()
 
 export const env = createEnv({
   server: {
-    NODE_ENV: z.enum(['production', 'dev']).default('dev'),
+    NODE_ENV: z.enum(['production', 'development']).default('development'),
     DATABASE_HOST: z.string(),
     DATABASE_PASSWORD: z.string(),
     DATABASE_DB: z.string(),
