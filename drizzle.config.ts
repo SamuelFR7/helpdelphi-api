@@ -1,13 +1,14 @@
 import type { Config } from 'drizzle-kit'
 
+import dotenv from 'dotenv'
+
+dotenv.config()
+
 export default {
   schema: './src/infra/db/schema.ts',
   driver: 'pg',
   dbCredentials: {
-    host: process.env.DATABASE_HOST ?? '',
-    user: process.env.DATABASE_USER ?? '',
-    password: process.env.DATABASE_PASSWORD ?? '',
-    database: process.env.DATABASE_DB ?? '',
+    connectionString: process.env.DATABASE_URL ?? '',
   },
   out: './drizzle',
 } satisfies Config
