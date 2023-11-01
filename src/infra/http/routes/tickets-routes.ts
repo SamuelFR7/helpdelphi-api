@@ -36,7 +36,10 @@ export async function ticketsRoutes(app: FastifyInstance) {
   app.get(
     '/tickets/:id',
     {
-      onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['technician'])],
+      onRequest: [
+        verifyJwtMiddleware,
+        verifyRoleMiddleware(['admin', 'technician']),
+      ],
     },
     getUniqueTicketController
   )

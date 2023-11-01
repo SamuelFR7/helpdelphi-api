@@ -9,7 +9,10 @@ export async function actionsRoutes(app: FastifyInstance) {
   app.post(
     '/actions',
     {
-      onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['technician'])],
+      onRequest: [
+        verifyJwtMiddleware,
+        verifyRoleMiddleware(['technician', 'admin']),
+      ],
     },
     createActionController
   )

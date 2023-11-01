@@ -12,6 +12,7 @@
     "build": "tsup src",
     "postinstall": "drizzle-kit generate:pg",
     "db:generate": "drizzle-kit generate:pg",
+    "db:push": "drizzle-kit push:pg",
     "db:studio": "drizzle-kit studio",
     "lint": "eslint \"./src/**/*.ts\"",
     "lint:fix": "eslint --fix \"./src/**/*.ts\"",

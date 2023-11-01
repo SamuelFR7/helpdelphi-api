@@ -51,10 +51,13 @@ export const tickets = pgTable('tickets', {
 
 export type Ticket = typeof tickets.$inferInsert
 
-export const actions = pgTable('action', {
+export const actions = pgTable('actions', {
   id: varchar('id', {
     length: 191,
-  }),
+  })
+    .primaryKey()
+    .$defaultFn(() => createId())
+    .notNull(),
   description: varchar('description', {
     length: 191,
   }),
