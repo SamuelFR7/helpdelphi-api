@@ -1,17 +1,17 @@
 DO $$ BEGIN
- CREATE TYPE "criticality" AS ENUM('LOW', 'MEDIUM', 'HIGH');
+ CREATE TYPE "criticality" AS ENUM('low', 'medium', 'high');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "role" AS ENUM('CLIENT', 'ADMIN', 'TECHNICIAN');
+ CREATE TYPE "role" AS ENUM('client', 'admin', 'technician');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;
 --> statement-breakpoint
 DO $$ BEGIN
- CREATE TYPE "status" AS ENUM('WAITING', 'IN_PROGRESS', 'STOPPED', 'FINISHED');
+ CREATE TYPE "status" AS ENUM('waiting', 'in_progress', 'stopped', 'finished');
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

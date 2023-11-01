@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "682d01e4-3a3b-4e5e-9846-caa15ef69a4d",
+  "id": "d54b3510-3e8a-41c3-bda1-a05eb4bac2b1",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "tickets": {
@@ -148,26 +148,26 @@
     "criticality": {
       "name": "criticality",
       "values": {
-        "LOW": "LOW",
-        "MEDIUM": "MEDIUM",
-        "HIGH": "HIGH"
+        "low": "low",
+        "medium": "medium",
+        "high": "high"
       }
     },
     "role": {
       "name": "role",
       "values": {
-        "CLIENT": "CLIENT",
-        "ADMIN": "ADMIN",
-        "TECHNICIAN": "TECHNICIAN"
+        "client": "client",
+        "admin": "admin",
+        "technician": "technician"
       }
     },
     "status": {
       "name": "status",
       "values": {
-        "WAITING": "WAITING",
-        "IN_PROGRESS": "IN_PROGRESS",
-        "STOPPED": "STOPPED",
-        "FINISHED": "FINISHED"
+        "waiting": "waiting",
+        "in_progress": "in_progress",
+        "stopped": "stopped",
+        "finished": "finished"
       }
     }
   },
