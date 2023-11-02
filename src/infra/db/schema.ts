@@ -1,4 +1,5 @@
 import { createId } from '@paralleldrive/cuid2'
+import { relations } from 'drizzle-orm'
 import { pgTable, varchar, pgEnum, timestamp } from 'drizzle-orm/pg-core'
 
 export const roleEnum = pgEnum('role', ['client', 'admin', 'technician'])
@@ -49,6 +50,11 @@ export const tickets = pgTable('tickets', {
   updatedAt: timestamp('updated_at', { mode: 'date' }),
 })
 
+export const ticketsRelations = relations(tickets, ({ many, one }) => ({
+  actions: many(actions),
+  user: one(users, { fields: [tickets.clientId], references: [users.id] }),
+}))
+
 export type Ticket = typeof tickets.$inferInsert
 
 export const actions = pgTable('actions', {
@@ -67,5 +73,12 @@ export const actions = pgTable('actions', {
     .references(() => tickets.id)
     .notNull(),
 })
+
+export const actionsRelations = relations(actions, ({ one }) => ({
+  ticket: one(tickets, {
+    fields: [actions.ticketId],
+    references: [tickets.id],
+  }),
+}))
 
 export type Action = typeof actions.$inferSelect
