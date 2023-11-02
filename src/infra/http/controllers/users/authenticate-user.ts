@@ -23,6 +23,7 @@ export async function authenticateUserController(
     return res.status(200).send({
       user: {
         username: user.username,
+        role: user.role,
       },
       token,
     })
