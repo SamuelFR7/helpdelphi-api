@@ -22,7 +22,11 @@ export async function ticketsRoutes(app: FastifyInstance) {
       page: string
       search: string
     }
-  }>('/tickets', { onRequest: [verifyJwtMiddleware] }, listTicketController)
+  }>(
+    '/tickets',
+    { onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['technician'])] },
+    listTicketController
+  )
   app.patch(
     '/tickets/:id',
     { onRequest: [verifyJwtMiddleware] },
