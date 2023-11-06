@@ -1,9 +1,64 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "d54b3510-3e8a-41c3-bda1-a05eb4bac2b1",
+  "id": "ba857871-10aa-4489-9b3c-af18072c8d15",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
+    "actions": {
+      "name": "actions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(191)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "description": {
+          "name": "description",
+          "type": "varchar(191)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ticket_id": {
+          "name": "ticket_id",
+          "type": "varchar(191)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "actions_ticket_id_tickets_id_fk": {
+          "name": "actions_ticket_id_tickets_id_fk",
+          "tableFrom": "actions",
+          "tableTo": "tickets",
+          "columnsFrom": [
+            "ticket_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "tickets": {
       "name": "tickets",
       "schema": "",
@@ -28,7 +83,7 @@
         },
         "criticality": {
           "name": "criticality",
-          "type": "criticality",
+          "type": "integer",
           "primaryKey": false,
           "notNull": true
         },
@@ -145,14 +200,6 @@
     }
   },
   "enums": {
-    "criticality": {
-      "name": "criticality",
-      "values": {
-        "low": "low",
-        "medium": "medium",
-        "high": "high"
-      }
-    },
     "role": {
       "name": "role",
       "values": {
