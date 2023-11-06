@@ -1,6 +1,12 @@
 import { createId } from '@paralleldrive/cuid2'
 import { relations } from 'drizzle-orm'
-import { pgTable, varchar, pgEnum, timestamp } from 'drizzle-orm/pg-core'
+import {
+  pgTable,
+  varchar,
+  pgEnum,
+  timestamp,
+  integer,
+} from 'drizzle-orm/pg-core'
 
 export const roleEnum = pgEnum('role', ['client', 'admin', 'technician'])
 
@@ -29,7 +35,6 @@ export const statusEnum = pgEnum('status', [
   'stopped',
   'finished',
 ])
-export const criticalityEnum = pgEnum('criticality', ['low', 'medium', 'high'])
 
 export const tickets = pgTable('tickets', {
   id: varchar('id', {
@@ -44,7 +49,7 @@ export const tickets = pgTable('tickets', {
     .references(() => users.id)
     .notNull(),
   subject: varchar('subject', { length: 191 }).notNull(),
-  criticality: criticalityEnum('criticality').notNull(),
+  criticality: integer('criticality').notNull(),
   status: statusEnum('status').notNull(),
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { mode: 'date' }),
