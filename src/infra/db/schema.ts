@@ -49,6 +49,7 @@ export const tickets = pgTable('tickets', {
     .references(() => users.id)
     .notNull(),
   subject: varchar('subject', { length: 191 }).notNull(),
+  description: varchar('description', { length: 191 }).notNull(),
   criticality: integer('criticality').notNull(),
   status: statusEnum('status').notNull(),
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
