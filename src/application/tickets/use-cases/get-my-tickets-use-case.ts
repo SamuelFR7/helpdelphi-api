@@ -1,6 +1,6 @@
 import { db } from '@/infra/db'
 import { type Ticket, tickets } from '@/infra/db/schema'
-import { eq } from 'drizzle-orm'
+import { asc, eq } from 'drizzle-orm'
 import { z } from 'zod'
 
 const requestSchema = z.object({
@@ -14,6 +14,7 @@ export async function GetMyTicketsUseCase(
     .select()
     .from(tickets)
     .where(eq(tickets.clientId, input.userId))
+    .orderBy(asc(tickets.criticality))
 
   return ticketsQuery
 }
