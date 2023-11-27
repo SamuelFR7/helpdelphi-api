@@ -32,7 +32,7 @@ export async function listTicketUseCase(
           ? like(tickets.subject, `%${input.search}%`)
           : undefined
       ),
-    orderBy: (tickets, { asc }) => [asc(tickets.criticality)],
+    orderBy: (tickets, { desc }) => [desc(tickets.criticality)],
   })
 
   const totalCountQuery = await db
