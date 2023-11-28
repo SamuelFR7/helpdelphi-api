@@ -15,6 +15,13 @@
       "when": 1701023989668,
       "tag": "0001_public_franklin_storm",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1701215252106,
+      "tag": "0002_optimal_quasimodo",
+      "breakpoints": true
     }
   ]
 }

@@ -2,6 +2,7 @@ import { createId } from '@paralleldrive/cuid2'
 import { relations } from 'drizzle-orm'
 import {
   pgTable,
+  serial,
   varchar,
   pgEnum,
   timestamp,
@@ -43,6 +44,7 @@ export const tickets = pgTable('tickets', {
     .primaryKey()
     .notNull()
     .$defaultFn(() => createId()),
+  number: serial('number').unique().notNull(),
   clientId: varchar('client_id', {
     length: 191,
   })
