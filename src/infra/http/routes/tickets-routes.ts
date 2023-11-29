@@ -7,6 +7,7 @@ import { deleteTicketController } from '../controllers/tickets/delete-ticket'
 import { verifyRoleMiddleware } from '../middlewares/verify-role'
 import { getUniqueTicketController } from '../controllers/tickets/get-unique-ticket'
 import { listMyTicketsController } from '../controllers/tickets/list-my-tickets'
+import { getLastNumberController } from '../controllers/tickets/get-last-number'
 
 export async function ticketsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwtMiddleware)
@@ -56,5 +57,12 @@ export async function ticketsRoutes(app: FastifyInstance) {
       ],
     },
     getUniqueTicketController
-  )
+  ),
+    app.get(
+      '/tickets/number',
+      {
+        onRequest: [verifyJwtMiddleware, verifyRoleMiddleware(['client'])],
+      },
+      getLastNumberController
+    )
 }
