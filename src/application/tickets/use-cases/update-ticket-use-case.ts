@@ -35,6 +35,8 @@ export async function updateTicketUseCase(
           return {
             description: action.description,
             ticketId: input.id,
+            previousStatus: ticketToUpdate.status,
+            newStatus: input.status,
           }
         })
       )

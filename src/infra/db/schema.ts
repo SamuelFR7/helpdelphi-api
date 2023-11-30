@@ -75,6 +75,8 @@ export const actions = pgTable('actions', {
   description: varchar('description', {
     length: 191,
   }),
+  previousStatus: statusEnum('previous_status').notNull(),
+  newStatus: statusEnum('new_status').notNull(),
   createdAt: timestamp('created_at', { mode: 'date' }).defaultNow().notNull(),
   updatedAt: timestamp('updated_at', { mode: 'date' }),
   ticketId: varchar('ticket_id', { length: 191 })
@@ -90,3 +92,4 @@ export const actionsRelations = relations(actions, ({ one }) => ({
 }))
 
 export type Action = typeof actions.$inferSelect
+export type ActionInsert = typeof actions.$inferInsert

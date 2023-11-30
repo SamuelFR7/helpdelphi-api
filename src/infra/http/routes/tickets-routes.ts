@@ -1,13 +1,13 @@
 import { type FastifyInstance } from 'fastify'
 import { createTicketController } from '../controllers/tickets/create-ticket'
 import { listTicketController } from '../controllers/tickets/list-ticket'
-import { updateTicketController } from '../controllers/tickets/update-ticket'
 import { verifyJwtMiddleware } from '../middlewares/verify-jwt'
 import { deleteTicketController } from '../controllers/tickets/delete-ticket'
 import { verifyRoleMiddleware } from '../middlewares/verify-role'
 import { getUniqueTicketController } from '../controllers/tickets/get-unique-ticket'
 import { listMyTicketsController } from '../controllers/tickets/list-my-tickets'
 import { getLastNumberController } from '../controllers/tickets/get-last-number'
+import { updateTicketController } from '../controllers/tickets/update-ticket'
 
 export async function ticketsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJwtMiddleware)
